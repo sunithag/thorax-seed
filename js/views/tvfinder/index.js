@@ -21,6 +21,12 @@ Application.View.extend({
                 .text(el.val());
         },
 
+        'click #clear_filters': function(event){
+            console.log("clicked on clear filters");
+            $('form select').val('None');
+            // $("input[type='search']:visible:enabled:first").focus();
+        },
+
         'change #typeList': function(event){
             console.log("type list changed");
         },
