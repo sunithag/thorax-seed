@@ -71,7 +71,7 @@ ThoraxGenerator.prototype.style = function(name, moduleName) {
 ThoraxGenerator.prototype.router = function(name, moduleName) {
   var target = path.join(this.paths.routers, name + '.' + this.language),
       moduleName = moduleName || name.split('/').shift();
-  ensureModule.call(this, moduleName, true);
+  ensureModule.call(this, moduleName);
   this.write(target, this.render('router.handlebars', {
     name: name
   }));
@@ -169,13 +169,11 @@ function addStyle(moduleName, style) {
   }
 }
 
-function ensureModule(moduleName, preventRouterInit) {
+function ensureModule(moduleName) {
   if (!ensureModuleInJSON.call(this, moduleName)) {
     console.log(blue + '    Creating module ' + moduleName + reset);
     this.style(moduleName, moduleName);
-    if (!preventRouterInit) {
-      this.router(moduleName, moduleName);
-    }
+    this.router(moduleName, moduleName);
   }
 }
 

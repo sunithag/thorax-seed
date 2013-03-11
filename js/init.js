@@ -5,7 +5,7 @@ var Application = window.Application = new Thorax.LayoutView({
   name: 'application'
 });
 
-// Alias the special hashes for naming consistency
+// Alias the special hashes for naming consitency
 Application.templates = Thorax.templates;
 Application.Views = Thorax.Views;
 Application.Models = Thorax.Models;
@@ -25,9 +25,6 @@ $(function() {
     root: '/',
     silent: true
   });
-  // TODO: can remove after this is fixed:
-  // https://github.com/walmartlabs/lumbar/issues/84
-  Application.template = Thorax.templates.application;
   Application.appendTo('body');
   Backbone.history.loadUrl();
 });

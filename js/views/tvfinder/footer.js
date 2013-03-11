@@ -1,3 +1,4 @@
 Application.View.extend({
-  name: "{{name}}"
+    name: "tvfinder/footer"
+
 });

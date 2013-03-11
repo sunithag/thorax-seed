@@ -3,6 +3,10 @@ Application.View.extend({
 
 
     events:{
+        'rendered': function(event){
+
+
+        },
         'change input[type="range"]': function(event) {
             var el, newPoint, newPlace, offset, width;
             el = this.$("#srange");
@@ -20,11 +24,10 @@ Application.View.extend({
                 })
                 .text(el.val());
         },
-
         'click #clear_filters': function(event){
             console.log("clicked on clear filters");
             $('form select').val('None');
-            // $("input[type='search']:visible:enabled:first").focus();
+           // $("input[type='search']:visible:enabled:first").focus();
         },
 
         'change #typeList': function(event){
@@ -62,19 +65,19 @@ Application.View.extend({
 
     }
 
-    /*   events: {
-     rendered: function() {
-     this.$("#tvfSlider").slider();
-     }
-     "submit form": function(event) {
-     event.preventDefault();
-     var attrs = this.serialize();
-     this.collection.add(attrs);
-     this.$('input[name="title"]').val('');
-     },
-     'change input[type="checkbox"]': function(event) {
-     var model = $(event.target).model();
-     model.set({done: event.target.checked});
-     }
-     }*/
+ /*   events: {
+        rendered: function() {
+            this.$("#tvRangeSlider").rangeSlider();
+        }
+        "submit form": function(event) {
+            event.preventDefault();
+            var attrs = this.serialize();
+            this.collection.add(attrs);
+            this.$('input[name="title"]').val('');
+        },
+        'change input[type="checkbox"]': function(event) {
+            var model = $(event.target).model();
+            model.set({done: event.target.checked});
+        }
+    }*/
 });

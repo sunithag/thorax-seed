@@ -1,26 +1,26 @@
 {
-    "mixins": [
-        "node_modules/lumbar-loader",
-        "node_modules/thorax",
-        "config/base.json"
-    ],
-    "modules": {
-        "tvfinder": {
-            "routes": {
-                "": "index"
-            },
-            "scripts": [
-                "js/routers/tvfinder.js",
-                "js/views/tvfinder/index.js"
-            ],
-            "styles": [
-                "stylesheets/tvfinder.css"
-            ]
-        }
-    },
-    "templates": {
-        "js/init.js": [
-            "templates/application.handlebars"
-        ]
+  "mixins": [
+    "node_modules/lumbar-loader",
+    "node_modules/thorax",
+    "config/base.json"
+  ],
+  "modules": {
+    "tvfinder": {
+      "routes": {
+        "": "index"
+      },
+      "scripts": [
+        "js/routers/tvfinder.js",
+        "js/views/tvfinder/index.js"
+      ],
+      "styles": [
+        "stylesheets/tvfinder.css"
+      ]
     }
+  },
+  "templates": {
+    "js/init.js": [
+      "templates/application.handlebars"
+    ]
+  }
 }
