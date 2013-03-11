@@ -10,7 +10,7 @@ new (Backbone.Router.extend({
             },
 
             parse : function(data){
-                //   data.splice(20);
+                data.splice(20);
                 return data;
             }
         });
