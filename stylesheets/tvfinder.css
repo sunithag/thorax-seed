@@ -1,0 +1,215 @@
+.tvfhead{
+    background-color:white;
+    padding-bottom:10px;
+    border-bottom:1px solid #EEE;
+}
+.tvfhead > ul, .tvfhead form{
+    margin:0px;
+    padding:0px;
+}
+
+.tvfitems{
+    text-align: center;
+}
+.tvfitems ul {
+    margin-left:30px;
+}
+.tvfitems li{
+    margin-right:20px;
+    padding:0;
+    width:206px;
+}
+
+.tvfitems .title{
+    display: block;
+    color: #555;
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: bold;
+    padding-top: 10px;
+    text-align: center;
+    width: 200px;
+    text-overflow: ellipsis;
+}
+
+.tvfAction ul{
+    margin-left:20px;
+}
+
+.tvfAction select {
+    width:140px;
+}
+
+
+output {
+    position: absolute;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#444444), to(#999999));
+    background-image: -webkit-linear-gradient(top, #444444, #999999);
+    background-image: -moz-linear-gradient(top, #444444, #999999);
+    background-image: -ms-linear-gradient(top, #444444, #999999);
+    background-image: -o-linear-gradient(top, #444444, #999999);
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+    font: bold 15px/30px Georgia;
+    bottom: 175%;
+    left: 0;
+    margin-left: -1%;
+}
+output:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid #999999;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -1px;
+}
+
+
+
+.sprite-footerimg, .sprite-tv46withprice, .sprite-tv24withprice, .sprite-tv18withprice, .sprite-walmartfooterlogo,
+.sprite-walmartlogo, .sprite-logoicon, .sprite-magnifier, .sprite-home, .sprite-cart,
+.sprite-person, .sprite-create {
+    display:block; background: url(img/tfcspritev.png) no-repeat;
+}
+
+.sprite-cart{ background-position: 0 0; width: 16px; height: 19px; }
+.sprite-create{ background-position: 0 -29px; width: 16px; height: 16px; }
+.sprite-footerimg{ background-position: 0 -55px; width: 310px; height: 304px; }
+.sprite-home{ background-position: 0 -369px; width: 20px; height: 24px; }
+.sprite-logoicon{ background-position: 0 -403px; width: 55px; height: 34px; }
+.sprite-magnifier{ background-position: 0 -447px; width: 23px; height: 24px; }
+.sprite-person{ background-position: 0 -481px; width: 18px; height: 18px; }
+.sprite-tv18withprice{ background-position: 0 -509px; width: 185px; height: 130px; }
+.sprite-tv24withprice{ background-position: 0 -649px; width: 236px; height: 167px; }
+.sprite-tv46withprice{ background-position: 0 -826px; width: 304px; height: 216px; }
+.sprite-walmartfooterlogo{ background-position: 0 -1052px; width: 184px; height: 55px; }
+.sprite-walmartlogo{ background-position: 0 -1117px; width: 186px; height: 54px; }
+
+.tvffooter {
+    background:#0e77bd;
+}
+
+.tvffooter a {
+    font: 11px/16px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+
+    color: white;
+}
+
+.slider {
+    padding: 5px 10px 5px 30px;
+    position: relative;
+    width:189px;
+}
+.slider .label {
+    color: #999999;
+    font-size: 11px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+}
+.slider .slide {
+    clear: both;
+    padding: 8px 0;
+    position: relative;
+}
+.slider div.pdiv {
+    color: #999999;
+    font-size: 11px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+}
+.slider input.pbox {
+    height: 14px;
+    padding: 2px;
+    width: 50px;
+}
+.slider .pdiv .lflt {
+    float: left;
+}
+.slider .pdiv .rflt {
+    float: right;
+}
+.slider .slide .range {
+    background-position: 0 0;
+    border-color: #B9B9B9;
+    border-style: solid;
+    border-width: 0 1px;
+    cursor: pointer;
+    height: 9px;
+    position: relative;
+}
+.slider .ticks {
+    height: 17px;
+    left: -1px;
+    position: absolute;
+    top: -4px;
+}
+.slider .tick {
+    background-color: #999999;
+    font-size: 0;
+    height: 100%;
+    position: absolute;
+    width: 1px;
+}
+.slider .hdl {
+    background-position: 0 0;
+    cursor: pointer;
+    height: 21px;
+    position: absolute;
+    top: -5px;
+    width: 13px;
+}
+.slider .legend {
+    margin-top: 2px;
+    overflow: hidden;
+    width: 100%;
+}
+.slider .legend .left {
+    color: #999999;
+    float: left;
+    font-size: 11px;
+    font-weight: bold;
+}
+.slider .legend .right {
+    color: #999999;
+    float: right;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.slider .slide .range, .slider .slide .bar {
+    background-image: url(img/sliderBar.png);
+}
+.slider .hdl {
+    background-image: url(img/sliderhdl.gif);
+    height: 29px;
+    width: 15px;
+}
+.slider .slide .bar {
+    background-position: 0 -13px;
+    height: 13px;
+    position: relative;
+}
+.slider .slide .range {
+    height: 14px;
+}
+.slider .slide .bar.ds {
+    background-position: 0 -18px;
+}
+.slider .hdl.drag {
+    background-position: 0 -26px;
+}
+.slider .hdl.ds {
+    background-position: 0 -52px;
+}
