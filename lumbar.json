@@ -11,7 +11,9 @@
       },
       "scripts": [
         "js/routers/tvfinder.js",
+        "js/views/tvfinder/itemlist.js",
         "js/views/tvfinder/index.js"
+
       ],
       "styles": [
         "stylesheets/tvfinder.css"

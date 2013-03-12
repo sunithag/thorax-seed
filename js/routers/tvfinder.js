@@ -2,17 +2,28 @@ new (Backbone.Router.extend({
 
     routes: module.routes,
     index: function() {
+        var tvf = Application.Model.extend();
         var TVFCollection = Application.Collection.extend({
+            model: tvf,
             url: 'http://localhost:8000/tvs.json',
             //localStorage : new Backbone.LocalStorage("TVFinder"),
             refreshFromServer : function() {
                 return Backbone.ajaxSync.apply(this, arguments);
-            },
+            }
 
-            parse : function(data){
+         /*   parse : function(data){
              //   data.splice(20);
+                console.
                 return data;
             }
+           typefilter: function(){
+                return this.filter(function(type){
+                    return tvf.get('name').contains(type);
+                })
+               // return _this.filter(function(data){
+
+                //});
+            }*/
         });
 
         var collection = new TVFCollection();
