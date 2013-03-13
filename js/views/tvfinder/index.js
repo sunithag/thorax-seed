@@ -23,9 +23,11 @@ Application.View.extend({
         },
 
         'rendered': function(event){
+            var range = [0,0];
+            var range_min = 13, range_max=100, range_mid = parseInt((range_max + range_min) / 2);;
+            var slider;
 
-
-      /*      slider = $("#size-slider").slider({ animate: false, range: true, min: range_min, max: range_max, values: [0, 0],
+            slider = this.$("#size-slider").slider({ animate: false, range: true, min: 0, max: 100, values: [0, 0],
                 slide: function (event, ui) {
 
                     if (ui.values[0] > ui.values[1])
@@ -37,7 +39,7 @@ Application.View.extend({
                     range[0] = ui.values[0];
                     range[1] = ui.values[1];
 
-                    filterTypes();
+                    //filterTypes();
                 } });
 
             slider.bind("setvals", function (e, p) {
@@ -46,6 +48,9 @@ Application.View.extend({
             });
 
             slider.trigger("setvals", { values: [range_mid-10, range_mid+10] } );
+
+
+
 
              /*  this.$( "#slider-range" ).slider({
                     range: true,

@@ -93,34 +93,7 @@ new (Backbone.Router.extend({
 
 
 ;;
-/*var ItemsView = Application.View.extend({
-    name: "tvfinder/itemlist",
-
-    events:{},
-    render: function(data){
-        $(this.el).html(this.template(this.model.toJSON()));
-        return this;
-    },
-    initialize : function(){
-        this.template = _.template($("#tvfitems").html());
-    }
-})
-*/
-var ItemsView = Application.View['items'] = Backbone.View.extend({
-
-    className : 'items',
-
-    render: function() {
-        var context = this.model.attributes;
-        output = this.options.template(context);
-        this.$el.html(output);
-    }
-
-});
-
-
-;;
-Thorax.templates['tvfinder/itemlist'] = Handlebars.compile('        {{#items tag=\"ul\" class=\"nav nav-pills\"}}\n\t\t    <li>\n\t\t\t    <a href=\"http://www.walmart.com/ip/Sceptre-32-X322BV-HD/15739136\">\n\t\t\t       <img src=\"{{image}}\" alt=\"\">\n\t\t\t       <span class=\"title\">{{name}}</span>\n\t\t\t    </a>\n\t\t    </li>\n         {{/items}}\n');Application.View.extend({
+Application.View.extend({
     name: "tvfinder/index",
 
 
@@ -145,9 +118,11 @@ Thorax.templates['tvfinder/itemlist'] = Handlebars.compile('        {{#items tag
         },
 
         'rendered': function(event){
+            var range = [0,0];
+            var range_min = 13, range_max=100, range_mid = parseInt((range_max + range_min) / 2);;
+            var slider;
 
-
-      /*      slider = $("#size-slider").slider({ animate: false, range: true, min: range_min, max: range_max, values: [0, 0],
+            slider = this.$("#size-slider").slider({ animate: false, range: true, min: 0, max: 100, values: [0, 0],
                 slide: function (event, ui) {
 
                     if (ui.values[0] > ui.values[1])
@@ -159,7 +134,7 @@ Thorax.templates['tvfinder/itemlist'] = Handlebars.compile('        {{#items tag
                     range[0] = ui.values[0];
                     range[1] = ui.values[1];
 
-                    filterTypes();
+                    //filterTypes();
                 } });
 
             slider.bind("setvals", function (e, p) {
@@ -168,6 +143,9 @@ Thorax.templates['tvfinder/itemlist'] = Handlebars.compile('        {{#items tag
             });
 
             slider.trigger("setvals", { values: [range_mid-10, range_mid+10] } );
+
+
+
 
              /*  this.$( "#slider-range" ).slider({
                     range: true,

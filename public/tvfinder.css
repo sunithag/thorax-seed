@@ -415,26 +415,44 @@ ol.inline > li {
     color: white;
 }
 
-.tvfslider .slider .ui-slider {
-    background: url(img/sliderBar.png) 0px 0px repeat-x;
+.tvfAction .slider .ui-slider {
+    background: url(../img/bg-slider.png) 0px 0px repeat-x;
     -moz-border-radius: 15px; -webkit-border-radius: 15px; -o-border-radius: 15px; -ms-border-radius: 15px; border-radius: 15px;
 }
-
-.tvfslider .slider .ui-slider-range {
-    background: url(img/sliderBar.png) 0px -12px repeat-x;
+.tvfAction .slider .ui-slider-horizontal {
+    height: 0.7em;
+}
+.tvfAction .slider .ui-slider-range {
+    background: url(../img/bg-slider.png) 0px -12px repeat-x;
 }
 
-.tvfslider .slider .ui-slider-handle {
-    background: url(img/sliderhdl.gif); width: 15px; height: 29px;
+.tvfAction .slider .ui-slider-handle {
+    background: url(../img/bg-slider-handle.png); width: 15px; height: 29px;
     border: none; top: -0.7em;
 }
 
-.tvfslider .slider .ui-slider-handle:after {
-    position: absolute; background: url(../images/bg-slider-tip.png) no-repeat; top: -50px; left: -24px;
+.tvfAction .slider .ui-slider-handle:after {
+    position: absolute; background: url(../img/slider-tip.png) no-repeat; top: -50px; left: -24px;
     content: attr(data-value) "\""; width: 63px; text-align: center; padding: 13px 0px 21px 0px;
     display: block; font-size: 1.7em; font-weight: bold; letter-spacing: -1px; color: #333;
     text-shadow: 0px 1px 0px #fff; font-family: "Custom";
 }
+
+.tvfAction .slider span {
+    display: block; font-size: 1.4em; margin-bottom: 30px; font-weight: bold; margin-top: 14px;
+}
+
+.tvfAction .slider {
+  padding-top: 16px;
+  padding-bottom: 40px;
+  padding-right: 11%;
+  padding-left: 4%;
+   width:200px;
+}
+
+
+
+
 
 
 #overlay {

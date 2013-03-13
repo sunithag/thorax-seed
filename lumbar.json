@@ -12,7 +12,6 @@
       "scripts": [
         "js/lib/jquery-ui-1.10.1.min.js",
         "js/routers/tvfinder.js",
-        "js/views/tvfinder/itemlist.js",
         "js/views/tvfinder/index.js"
 
       ],
