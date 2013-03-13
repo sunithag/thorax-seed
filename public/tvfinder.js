@@ -319,7 +319,7 @@ Thorax.templates['tvfinder/itemlist'] = Handlebars.compile('        {{#items tag
             //$("<a>").attr("href", j.attributes.url).appendTo(li);
             $("<img>").attr("src", j.attributes.image).appendTo(a);
             $("<span>").attr("class", 'title').text(j.attributes.name).appendTo(a);
-            $("<span>").attr("class", 'title').text("$" + j.attributes.listPrice).appendTo(a);
+            $("<span>").attr("class", 'price').text("$" + j.attributes.listPrice).appendTo(a);
            a.appendTo(li);
            li.appendTo(str);
            // tvfItems.append(str);
