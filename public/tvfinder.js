@@ -213,7 +213,7 @@ Thorax.templates['tvfinder/itemlist'] = Handlebars.compile('        {{#items tag
         },
         'click #clear_filters': function(event){
             console.log("clicked on clear filters");
-            $('form select').val('None');
+            $('.tvfAction select').val('None');
             this.tvfItemList();
            // $("input[type='search']:visible:enabled:first").focus();
         },
