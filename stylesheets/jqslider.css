@@ -27,3 +27,113 @@
     border-right: 1px solid #eee; padding-top: 16px; padding-bottom: 40px; padding-right: 11%; padding-left: 4%;
 }
 
+
+.slider {
+    padding: 5px 10px 5px 30px;
+    position: relative;
+    width:189px;
+}
+.slider .label {
+    color: #999999;
+    font-size: 11px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+}
+.slider .slide {
+    clear: both;
+    padding: 8px 0;
+    position: relative;
+}
+.slider div.pdiv {
+    color: #999999;
+    font-size: 11px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+}
+.slider input.pbox {
+    height: 14px;
+    padding: 2px;
+    width: 50px;
+}
+.slider .pdiv .lflt {
+    float: left;
+}
+.slider .pdiv .rflt {
+    float: right;
+}
+.slider .slide .range {
+    background-position: 0 0;
+    border-color: #B9B9B9;
+    border-style: solid;
+    border-width: 0 1px;
+    cursor: pointer;
+    height: 9px;
+    position: relative;
+}
+.slider .ticks {
+    height: 17px;
+    left: -1px;
+    position: absolute;
+    top: -4px;
+}
+.slider .tick {
+    background-color: #999999;
+    font-size: 0;
+    height: 100%;
+    position: absolute;
+    width: 1px;
+}
+.slider .hdl {
+    background-position: 0 0;
+    cursor: pointer;
+    height: 21px;
+    position: absolute;
+    top: -5px;
+    width: 13px;
+}
+.slider .legend {
+    margin-top: 2px;
+    overflow: hidden;
+    width: 100%;
+}
+.slider .legend .left {
+    color: #999999;
+    float: left;
+    font-size: 11px;
+    font-weight: bold;
+}
+.slider .legend .right {
+    color: #999999;
+    float: right;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.slider .slide .range, .slider .slide .bar {
+    background-image: url(img/sliderBar.png);
+}
+.slider .hdl {
+    background-image: url(img/sliderhdl.gif);
+    height: 29px;
+    width: 15px;
+}
+.slider .slide .bar {
+    background-position: 0 -13px;
+    height: 13px;
+    position: relative;
+}
+.slider .slide .range {
+    height: 14px;
+}
+.slider .slide .bar.ds {
+    background-position: 0 -18px;
+}
+.slider .hdl.drag {
+    background-position: 0 -26px;
+}
+.slider .hdl.ds {
+    background-position: 0 -52px;
+}
+

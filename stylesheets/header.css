@@ -1,0 +1,47 @@
+.tvfhead{
+    background-color:white;
+    padding-bottom:10px;
+    border-bottom:1px solid #EEE;
+}
+
+.tvfhead ul{
+    margin:5px 0 0;
+    padding:0px;
+}
+
+.tvfhead form{
+    margin:10px 0 0;
+    padding:0px;
+}
+
+.tvfhead .pull-right li{
+    margin:5px;
+    padding:0 15px 0;
+    border-right:2px solid #CCC;
+
+}
+.tvfhead .pull-right li span{
+    white-space:nowrap;
+    font-family:Arial;
+    font-weight:bold;
+    color:#666;
+}
+.tvfhead .pull-right li div{
+    font: normal 11px Verdana,sans-serif;
+    color:lightgrey;
+    margin-top:5px;
+}
+.tvfhead .pull-right li a{
+    margin:0;
+    padding:0 0 0 20px;
+    position:relative;
+}
+.tvfhead .pull-right li.last{
+    border:0;
+}
+
+.tvfhead li i{
+    position:absolute;
+    top:-1px;
+    left:2px
+}

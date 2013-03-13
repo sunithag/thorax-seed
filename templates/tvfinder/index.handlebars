@@ -35,21 +35,24 @@
                 <img alt="Walmart. Save Money. Live Better."  src="img/walmart_logo.gif">
             </li>
             <li>
-                <form style="margin-top:10px;padding:0;">
-                    <input type="search" class="search-query" placeholder="Search">
-                 </form
+                <form name="search">
+                    <input type="search" placeholder="Search" class="text" name="search" />
+                </form>
             </li>
         </ul>
     </header>
+
 <!-- header ends -->
+
+
 <!-- breadcrumb starts -->
-        	<div style="background: #fff; display: block; padding: 0px 24px; margin: 10px 0 0; line-height: 1em;">
+        	<div class="tvfbc">
         				<a href="http://www.walmart.com/"><img src="img/home.jpg"/></a>
 
         				<a href="http://www.walmart.com/cp/All-Departments/121828">Departments</a>
-        				<span style="margin-left:15px;color:#EEE"> > </span>
+        				<span> > </span>
         				<a href="http://www.walmart.com/cp/Electronics/3944">Electronics</a>
-        				<span style="margin-left:15px;color:#EEE"> > </span>
+        				<span> > </span>
         				<a class="last" href="http://www.walmart.com/cp/1060825">TV'S</a>
         	</div>
 
@@ -61,28 +64,23 @@
 
 
 <!-- POV starts -->
-    <article class="pov" style="font-family:Arial;text-align:center;vertical-align:middle;margin-bottom:40px;">
-       <h2 style="font-weight:normal;font-size:35px;">Get More, For Less</h2>
-       <p style="color:#acacac;font-size:19px;font-weight:normal;">Find the perfect Television with our new <span style="color:#0e79be;">TVFinder<sup>TM</sup></span></p>
-        <div style="display:block;position:relative;clear:both;height:226px;margin-top:18px;">
-            <img alt="TV 18\"." style="float:left;position:absolute;bottom:5px;left:70px;"  src="img/tv18withprice.jpg">
-            <img alt="TV 24\"." style="float:left;position:absolute;bottom:0;left:298px;" src="img/tv24withprice.jpg"">
-            <img alt="TV 46\"." style="float:left;position:absolute;bottom:0;left:569px;" src="img/tv46withprice.jpg">
-           <!-- <i class="sprite-tv18withprice" style="float:left;position:absolute;bottom:0;left:70px;"></i>
-            <i class="sprite-tv24withprice" style="float:left;position:absolute;bottom:0;left:298px;"></i>
-            <i class="sprite-tv46withprice" style="float:left;position:absolute;bottom:0;left:569px;"></i> -->
+    <article class="tvfpov" >
+       <h2>Get More, For Less</h2>
+       <p>Find the perfect Television with our new <span style="color:#0e79be;">TVFinder<sup>TM</sup></span></p>
+        <div>
+            <img  class="first" alt="TV 18\"." src="img/tv18withprice.jpg">
+            <img alt="TV 24\"."  class="second" src="img/tv24withprice.jpg"">
+            <img alt="TV 46\"."  class="third" src="img/tv46withprice.jpg">
         </div>
     </article>
 
 <!-- POV ends -->
 
 <!-- Action Form starts -->
-   <form id="tvf_form" name="tvf_form" action="" method="get">
 
-
-    <article class="tvfAction clearfix" style="border-bottom:1px solid #EEE;margin-bottom:20px;">
+    <article class="tvfAction clearfix">
         <ul class="nav nav-pills pull-right">
-            <li style="padding-right:20px;text-align:left;font-family:Arial;font-size:16px;color:#666">
+            <li >
 
                              <label>Type</label>
                              <select id = "typeList">
@@ -92,7 +90,7 @@
                                <option value = "Plasma">Plasma</option>
                              </select>
             </li>
-            <li style="padding-right:20px;text-align:left;font-family:Arial;font-size:16px;color:#666">
+            <li >
                              <label>Brand</label>
                              <select id = "brandList">
                                <option value = "All">All</option>
@@ -109,7 +107,7 @@
 
 
             </li>
-            <li style="padding-right:20px;text-align:left;font-family:Arial;font-size:16px;color:#666">
+            <li >
                                <label>Sort</label>
                                <select id = "sortList">
                                  <option value = "1">Default</option>
@@ -122,50 +120,29 @@
         <ul class="nav nav-pills pull-left">
             <li style="margin-top:10px">
                 <i class="sprite-logoicon"></i>
-                <div style="color:#0e79be;">TVFinder<sup>TM</sup></div>
+                <div class="logo">TVFinder<sup>TM</sup></div>
             </li>
             <li style="margin-left:20px">
-
-
-
-<!--
-
-        <span class="range-wrapper">
-            <input type="range" data-thumbwidth="14" />
-        </span>
-        -->
-
-
-                    <div class="slider">
-                    	<div>Size</div>
-                    	<div class="slide" id="slider">
-                    		<div class="range">
-                    			<div class="bar" style="margin-left: 5px; margin-right: 0px; "></div>
-                    		    <div class="hdl" style="left: -4px;" draggable="true"></div>
-                    		    <div class="hdl" style="left: 178px;" draggable="true"></div>
-                    		</div>
-                    	</div>
-                    	<div class="legend">
-                    		<div class="left">0</div>
-                    		<div class="right">100</div>
-                    	</div>
-                    </div>
-
+                <div class="slider">
+	                <span>Size</span>
+	                <div id="size-slider"></div>
+	             </div>
             </li>
         </ul>
         </article>
-        <article>
-                <div class="clearfix" >
-                    <span style="float:right;margin-right:20px;">
+        <article class="tvfsummary">
+            <div class="clearfix" >
+                 <span class="clear">
                         <input type="button" id="clear_filters" value="Clear Filters" style="border-radius:5px;background-color:white;" >
-                    </span>
-                    <span style="float:left;margin-left:20px;">
-                    <span style="font-weight:bold" id="count"> 20 MATCHES </span>FOR TELEVISIONS FITTING THAT CRITERIA
-                    </span>
-                </div>
+                 </span>
+                 <span class="results">
+                    <span id="count"> 100 MATCHES </span>FOR TELEVISIONS FITTING THAT CRITERIA
+                 </span>
+            </div>
+        </article>
 
-    </article>
-</form>
+
+
   <!-- Action form ends -->
 
 <!-- items starts -->
@@ -186,15 +163,15 @@
     <!--  items ends -->
     <hr>
 <!-- footer starts -->
-    <footer style="background:#1A75CF;color:white;margin-bottom:20px;" class="tvffooter clearfix">
-       <div style="margin:30px 30px 30px 185px" class="clearfix" >
+    <footer class="tvffooter clearfix">
+       <div class="fform clearfix" >
            <i class="sprite-walmartfooterlogo" style="float:left"></i>
-            <form style="margin-top:10px;padding:0;float:left">
+            <form >
                 <input type="search" class="search-query" placeholder="Search">
              </form>
-           <button style="float:left; margin: 20px 0px 0px 10px;">Sign Up</button>
+           <button>Sign Up</button>
         </div>
-       <article style="float:left;padding:0 15px 0 20px;">
+       <article class="first">
           <ul class="nav">
              <li><a href="http://corporate.walmart.com/?povid=P1576-C1207.1157-L4" title="Corporate">Corporate</a></li>
              <li><a href="http://corporate.walmart.com/our-story/?povid=P1576-C1207.1157-L5" title="Our Story">Our Story</a></li>
@@ -206,7 +183,7 @@
              <li><a href="http://walmartstores.com/careers?povid=P1576-C1207.1157-L11" title="Careers">Careers</a></li>
           </ul>
        </article>
-       <article style="float:left;padding:0 15px;">
+       <article >
           <ul class="nav">
              <li><a href="http://www.walmart.com/catalog/catalog.gsp?cat=542412&amp;povid=P1576-C1207.1157-L12" title="About Walmart.com">About Walmart.com</a></li>
              <li><a href="http://www.walmart.com/catalog/catalog.gsp?cat=538449&amp;povid=P1576-C1207.1157-L13" title="Terms of Use">Terms of Use</a></li>
@@ -219,7 +196,7 @@
              <li><a href="http://coupons.walmart.com/?povid=P1576-C1207.1157-L20" title="Printable Coupons">Printable Coupons</a></li>
           </ul>
        </article>
-       <article style="float:left;padding:0 15px;">
+       <article >
           <ul class="nav">
              <li><a href="http://www.walmart.com/wf.gsp/a_d_registration_flow/landing?povid=P1576-C1207.1157-L21" title="Associate Discounts">Associate Discounts</a></li>
              <li><a href="https://corporate.walmart.com/privacy-security?povid=P1576-C1207.1157-L22" title="Privacy &amp; Security">Privacy &amp; Security</a></li>
@@ -228,7 +205,7 @@
              <li><a href="http://www.walmart.com/catalog/catalog.gsp?cat=121828&amp;povid=P1576-C1207.1157-L25" title="See All Department">See All Department</a></li>
           </ul>
        </article>
-       <article style="float:left;padding:0 15px;">
+       <article>
            <ul class="nav ">
              <li><a href="http://www.walmart.com/catalog/catalog.gsp?cat=5436&amp;povid=P1576-C1207.1157-L26" title="Help Center">Help Center</a></li>
              <li><a href="http://www.walmart.com/cservice/li_trackorder.gsp?NavMode=2&amp;povid=P1576-C1207.1157-L27" title="Track Your Order">Track Your Order</a></li>
@@ -239,14 +216,21 @@
              <li><a href="https://secure.opinionlab.com/ccc01/comment_card.asp?custom_var=249524036097612114&amp;height=768&amp;povid=P1576-C1207.1157-L32&amp;referer=http%3A%2F%2Fwww.walmart.com%2F&amp;time1=1348429537447&amp;time2=1348429729088&amp;width=1024" title="Feedback">Feedback</a></li>
              </ul>
        </article>
-       <article style="float:left;padding:0 15px;">
+       <article>
            <ul class="nav ">
-              <li>Walmart Money Center</li>
+              <li style="font-size:16px;">Walmart Money Center</li>
               <li><i class="sprite-footerimg"></i></li>
            </ul>
        </article>
 
     </footer>
+    <div id="overlay">
+      <div class="pinfo">
+        <span class="close"></span>
+        <span class="title">title</span>
+      </div>
+
+    </div>
 
 
 

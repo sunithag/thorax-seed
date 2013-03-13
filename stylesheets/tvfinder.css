@@ -1,3 +1,4 @@
+
 .tvfhead{
     background-color:white;
     padding-bottom:10px;
@@ -9,10 +10,7 @@
     padding:0px;
 }
 
-.tvfhead form{
-    margin:10px 0 0;
-    padding:0px;
-}
+
 
 .tvfhead .pull-right li{
     margin:5px;
@@ -47,6 +45,70 @@
 }
 
 
+
+.tvfhead input[type="search"]{
+    margin-top:5px;
+    padding:7px 7px 7px 30px;
+    border: 1px solid #cccccc;
+    border-radius:6px;
+    font-family:Arial;
+    font-size:18px;
+    background: transparent url(img/spyglass.png) no-repeat 0 center;
+}
+.tvfbc{
+    background: #fff;
+    display: block;
+    padding: 0px 24px;
+    margin: 10px 0 0;
+    line-height: 1em;
+}
+
+.tvfbc span {
+    margin:0 15px;
+    color:#EEE;
+}
+
+.tvfpov {
+    font-family:Arial;
+    text-align:center;
+    vertical-align:middle;
+    margin-bottom:40px;
+}
+
+.tvfpov h2{
+    font-weight:normal;
+    font-size:35px;
+}
+.tvfpov p{
+    color:#acacac;
+    font-size:19px;
+    font-weight:normal;
+}
+.tvfpov div{
+    display:block;
+    position:relative;
+    clear:both;
+    height:226px;
+    margin-top:18px;
+}
+.tvfpov img{
+    float:left;
+    position:absolute;
+
+}
+.tvfpov img.first{
+    bottom:5px;
+    left:70px;
+}
+
+.tvfpov img.second{
+    bottom:0;
+    left:298px;
+}
+.tvfpov img.third{
+    bottom:0;
+    left:569px;
+}
 .tvfitems{
     text-align: center;
 }
@@ -79,53 +141,46 @@
     margin-top:10px;
 }
 
+.tvfAction{
+    border-bottom:1px solid #EEE;
+    margin-bottom:20px;
+}
 .tvfAction ul{
   margin-left:20px;
 }
 
-
+.tvfAction li{
+    padding-right:20px;
+    text-align:left;
+    font-family:Arial;
+    font-size:16px;
+    color:#666;
+}
 
 .tvfAction select {
     width:140px;
+    display:block;
+    margin-top:10px;
 
 
 }
 
-
-
-output {
-    position: absolute;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#444444), to(#999999));
-    background-image: -webkit-linear-gradient(top, #444444, #999999);
-    background-image: -moz-linear-gradient(top, #444444, #999999);
-    background-image: -ms-linear-gradient(top, #444444, #999999);
-    background-image: -o-linear-gradient(top, #444444, #999999);
-    width: 40px;
-    height: 30px;
-    text-align: center;
-    color: white;
-    border-radius: 10px;
-    display: inline-block;
-    font: bold 15px/30px Georgia;
-    bottom: 175%;
-    left: 0;
-    margin-left: -1%;
-}
-output:after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 10px solid #999999;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    margin-top: -1px;
+.tvfAction .logo{
+    color:#0e79be;
 }
 
+.tvfsummary .clear{
+    float:right;
+    margin-right:20px;
+}
+.tvfsummary .results{
+    float:left;
+    margin-left:20px;
+}
 
+.tvfsummary .results span{
+    font-weight:bold;
+}
 
 .sprite-footerimg, .sprite-tv46withprice, .sprite-tv24withprice, .sprite-tv18withprice, .sprite-walmartfooterlogo,
 .sprite-walmartlogo, .sprite-logoicon, .sprite-magnifier, .sprite-home, .sprite-cart,
@@ -147,7 +202,41 @@ output:after {
 .sprite-walmartlogo{ background-position: 0 -1117px; width: 186px; height: 54px; }
 
 .tvffooter {
-    background:#0e77bd;
+    background:#1A75CF;
+    color:white;
+    margin-bottom:20px;
+}
+
+.tvffooter button{
+    float:left;
+    margin: 12px 0px 0px 10px;
+    padding:7px;
+    border-radius:0.9px;
+}
+.tvffooter form{
+
+    margin-top:10px;
+    margin-left:10px;
+    padding:0;
+    float:left;
+}
+.tvffooter input[type="search"]{
+    padding:7px;
+    border: 1px solid #cccccc;
+    border-radius:6px;
+}
+
+.tvffooter .fform{
+    margin:30px 30px 30px 185px;
+}
+
+.tvffooter article{
+    float:left;
+    padding:0 15px;
+}
+
+.tvffooter article .first{
+    padding-left:20px;
 }
 
 .tvffooter a {
@@ -156,111 +245,44 @@ output:after {
     color: white;
 }
 
-.slider {
-    padding: 5px 10px 5px 30px;
-    position: relative;
-    width:189px;
-}
-.slider .label {
-    color: #999999;
-    font-size: 11px;
-    font-weight: bold;
-    position: relative;
-    text-align: center;
-}
-.slider .slide {
-    clear: both;
-    padding: 8px 0;
-    position: relative;
-}
-.slider div.pdiv {
-    color: #999999;
-    font-size: 11px;
-    font-weight: bold;
-    position: relative;
-    text-align: center;
-}
-.slider input.pbox {
-    height: 14px;
-    padding: 2px;
-    width: 50px;
-}
-.slider .pdiv .lflt {
-    float: left;
-}
-.slider .pdiv .rflt {
-    float: right;
-}
-.slider .slide .range {
-    background-position: 0 0;
-    border-color: #B9B9B9;
-    border-style: solid;
-    border-width: 0 1px;
-    cursor: pointer;
-    height: 9px;
-    position: relative;
-}
-.slider .ticks {
-    height: 17px;
-    left: -1px;
-    position: absolute;
-    top: -4px;
-}
-.slider .tick {
-    background-color: #999999;
-    font-size: 0;
-    height: 100%;
-    position: absolute;
-    width: 1px;
-}
-.slider .hdl {
-    background-position: 0 0;
-    cursor: pointer;
-    height: 21px;
-    position: absolute;
-    top: -5px;
-    width: 13px;
-}
-.slider .legend {
-    margin-top: 2px;
-    overflow: hidden;
-    width: 100%;
-}
-.slider .legend .left {
-    color: #999999;
-    float: left;
-    font-size: 11px;
-    font-weight: bold;
-}
-.slider .legend .right {
-    color: #999999;
-    float: right;
-    font-size: 11px;
-    font-weight: bold;
+.tvfslider .slider .ui-slider {
+    background: url(img/sliderBar.png) 0px 0px repeat-x;
+    -moz-border-radius: 15px; -webkit-border-radius: 15px; -o-border-radius: 15px; -ms-border-radius: 15px; border-radius: 15px;
 }
 
-.slider .slide .range, .slider .slide .bar {
-    background-image: url(img/sliderBar.png);
+.tvfslider .slider .ui-slider-range {
+    background: url(img/sliderBar.png) 0px -12px repeat-x;
 }
-.slider .hdl {
-    background-image: url(img/sliderhdl.gif);
-    height: 29px;
-    width: 15px;
+
+.tvfslider .slider .ui-slider-handle {
+    background: url(img/sliderhdl.gif); width: 15px; height: 29px;
+    border: none; top: -0.7em;
 }
-.slider .slide .bar {
-    background-position: 0 -13px;
-    height: 13px;
-    position: relative;
+
+.tvfslider .slider .ui-slider-handle:after {
+    position: absolute; background: url(../images/bg-slider-tip.png) no-repeat; top: -50px; left: -24px;
+    content: attr(data-value) "\""; width: 63px; text-align: center; padding: 13px 0px 21px 0px;
+    display: block; font-size: 1.7em; font-weight: bold; letter-spacing: -1px; color: #333;
+    text-shadow: 0px 1px 0px #fff; font-family: "Custom";
 }
-.slider .slide .range {
-    height: 14px;
+
+
+#overlay {
+
+    outline: 9999px solid rgba(0, 0, 0, .5);
+    position: absolute;
+    top: 64px;
+    left: 34%;
+    width: 54%;
+    padding: 2%;
+    height: 200%;
+    background: white;
+    box-shadow: 0px 0px 40px #666;
+    display: none;
+
 }
-.slider .slide .bar.ds {
-    background-position: 0 -18px;
-}
-.slider .hdl.drag {
-    background-position: 0 -26px;
-}
-.slider .hdl.ds {
-    background-position: 0 -52px;
+
+#overlay .close{
+    text-align:right;
+    background: url(img/close.png); width: 32px; height: 37px;
 }
