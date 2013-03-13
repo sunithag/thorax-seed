@@ -276,6 +276,9 @@
 .tvfAction .slider span {
     display: block; font-size: 1.4em; margin-bottom: 30px; font-weight: bold; margin-top: 14px;
 }
+.tvfAction .slider a{
+    text-decoration: none;
+}
 
 .tvfAction .slider {
   padding-top: 16px;
