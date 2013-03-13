@@ -96,150 +96,72 @@ new (Backbone.Router.extend({
 Application.View.extend({
     name: "tvfinder/index",
 
-
-
-
-
     events:{
-        'click #tvfitems a': function(event){
-            console.log("item anchor clicked");
-            event.preventDefault();
-            var str = event.target.innerHTML;
-            var panel = this.$( "#overlay" );
 
-           this.$("#overlay .title").replaceWith(str);
-            panel.css("display","block");
-            window.scrollTo(0,0);
+        'click #tvfitems a' : 'productDetails',
 
-        },
-        'click #overlay .close': function(event){
-            console.log("clicked on close icon");
-            this.$( "#overlay" ).css("display","none");
-        },
+        'click #overlay .close': 'hideOverlay',
+
+        'click #clear_filters': 'clearFilters',
+
+        'change .tvfAction select': 'updateProductList',
 
         'rendered': function(event){
-            var range = [0,0];
-            var range_min = 13, range_max=100, range_mid = parseInt((range_max + range_min) / 2);;
-            var slider;
 
-            slider = this.$("#size-slider").slider({ animate: false, range: true, min: 0, max: 100, values: [0, 0],
-                slide: function (event, ui) {
-
-                    if (ui.values[0] > ui.values[1])
-                        return false;
-
-                    $(this).find(".ui-slider-handle:eq(0)").attr("data-value", ui.values[0]);
-                    $(this).find(".ui-slider-handle:eq(1)").attr("data-value", ui.values[1]);
-
-                    range[0] = ui.values[0];
-                    range[1] = ui.values[1];
-
-                    //filterTypes();
-                } });
-
-            slider.bind("setvals", function (e, p) {
-                $(this).slider("option", "values", p.values);
-                $(this).slider("option", "slide").call($(this), null, p);
-            });
-
-            slider.trigger("setvals", { values: [range_mid-10, range_mid+10] } );
-
-
-
-
-             /*  this.$( "#slider-range" ).slider({
-                    range: true,
-                    min: 0,
-                    max: 500,
-                    values: [ 75, 300 ],
-                    slide: function( event, ui ) {
-                        this.$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-                    }
-                });
-                this.$( "#amount" ).val( "$" + this.$( "#slider-range" ).slider( "values", 0 ) +
-                    " - $" + this.$( "#slider-range" ).slider( "values", 1 ) );
-
-                    */
-
-
-        },
-        'ondragmove .hdl': function(event){
-            console.log("drag move");
-
-        },
-        'ondragstop .hdl' : function(event){
-            console.log("drag stop");
-
-        },
-
-        'change input[type="range"]': function(event) {
-            var el, newPoint, newPlace, offset, width;
-            el = this.$("#srange");
-            width = el.width();
-            newPoint = (el.val() - el.attr("min")) / (el.attr("max") - el.attr("min"));
-            offset = -5.3;
-            if (newPoint < 0) { newPlace = 0;  }
-            else if (newPoint > 1) { newPlace = width; }
-            else { newPlace = width * newPoint + offset; offset -= newPoint;}
-            el
-                .next("output")
-                .css({
-                    left: newPlace,
-                    marginLeft: offset + "%"
-                })
-                .text(el.val());
-        },
-        'click #clear_filters': function(event){
-            console.log("clicked on clear filters");
-            $('.tvfAction select').val('None');
-            this.tvfItemList();
-           // $("input[type='search']:visible:enabled:first").focus();
-        },
-
-        'change #typeList': function(event){
-            console.log("type list changed");
-
-            this.tvfItemList();
-        },
-
-        'change #brandList':function(event){
-
-
-            console.log("brand list changed");
-
-            this.tvfItemList();
-       /*
-        var tvfitems, data, str = "brand list changed";
-        data = this.collection.models;
-            data = data.splice(20);
-            tvfitems = this.$(".tvfitems");
-            if(this.$('em').length ==0){
-                var $em = $('<em>').html(str);
-                tvfitems.html('');
-                tvfitems.append($em);
-                $em.fadeIn();
-            } else {
-
-                this.$('em').stop().fadeOut(function(){
-                    $(this).html( str ).fadeIn();
-                });
-
-            } */
-
-        },
-
-        'change #sortList':function(event){
-            console.log("sort list changed");
-            this.tvfItemList();
+            //this.setupData();
+            this.setupSlider(event);
         }
-
-
-
 
     },
 
-    tvfItemList: function(event){
-        console.log("in itemlist");
+    productDetails: function(event){
+
+        event.preventDefault();
+        var str = event.target.innerHTML;
+        var panel = this.$( "#overlay" );
+        this.$("#overlay .title").replaceWith(str);
+        panel.css("display","block");
+        window.scrollTo(0,0);
+    },
+
+    hideOverlay: function(event){
+        this.$( "#overlay" ).css("display","none");
+    },
+
+    setupSlider: function(event){
+        var range = [0,0];
+        var range_min = 13, range_max=100, range_mid = parseInt((range_max + range_min) / 2);;
+        var slider;
+
+        slider = this.$("#size-slider").slider({ animate: false, range: true, min: 0, max: 100, values: [0, 0],
+            slide: function (event, ui) {
+
+                if (ui.values[0] > ui.values[1])
+                    return false;
+
+                $(this).find(".ui-slider-handle:eq(0)").attr("data-value", ui.values[0]);
+                $(this).find(".ui-slider-handle:eq(1)").attr("data-value", ui.values[1]);
+
+                range[0] = ui.values[0];
+                range[1] = ui.values[1];
+            } });
+
+        slider.bind("setvals", function (e, p) {
+            $(this).slider("option", "values", p.values);
+            $(this).slider("option", "slide").call($(this), null, p);
+        });
+
+        slider.trigger("setvals", { values: [range_mid-20, range_mid+20] } );
+
+    },
+
+    clearFilters: function(event){
+        $('.tvfAction select').val('None');
+        //slider.trigger("setvals", { values: [range_mid-20, range_mid+20] } );
+        this.updateProductList();
+    },
+
+    updateProductList: function(event){
         var tvfitems = this.$("#tvfitems");
         var matches = this.$("#count");
 
@@ -249,14 +171,8 @@ Application.View.extend({
         var sort = $("#sortList :selected").text();
 
 
-        tvfitems.html("");
-        var i, nitems = 0;
-
-     //   for(i in data){
-       //    console.log( data[i].attributes.name);
-        //}
-
-
+       tvfitems.html("");
+       var i, nitems = 0;
        this.newArray = data.filter(function(item){
 
             return (type.match(/All/) || item.attributes.name.match(type));
@@ -281,26 +197,25 @@ Application.View.extend({
         });
         Application.setView(view);
         view.render();
+
+       Application.$el.append(view.el)
         $('.tvfitems').replaceWith(view.el);*/
 
       //  tvfitems.html("");
         var str = $("<ul class='nav nav-pills' data-view-cid='view7' data-view-helper='collection' data-collection-element='true' data-collection-cid='collection3'></ul>");
 
+       // var str = $("<ul class='nav nav-pills>");
 
-        for(i in this.newArray){
-
-            var j = this.newArray[i];
+       for(i in this.newArray){
+           var j = this.newArray[i];
            var li = $("<li data-model-cid='c109'>");
            var a = $("<a>");
             a.attr("href", j.attributes.url);
-           // $("<li>").appendTo(str);
-            //$("<a>").attr("href", j.attributes.url).appendTo(li);
             $("<img>").attr("src", j.attributes.image).appendTo(a);
             $("<span>").attr("class", 'title').text(j.attributes.name).appendTo(a);
             $("<span>").attr("class", 'price').text("$" + j.attributes.listPrice).appendTo(a);
            a.appendTo(li);
            li.appendTo(str);
-           // tvfItems.append(str);
 
         };
 
@@ -309,27 +224,8 @@ Application.View.extend({
         tvfitems.append(str);
         setTimeout(this.$("#tvfitems").fadeIn(300), 300);
 
-
-
-
-
     }
 
- /*   events: {
-        rendered: function() {
-            this.$("#tvRangeSlider").rangeSlider();
-        }
-        "submit form": function(event) {
-            event.preventDefault();
-            var attrs = this.serialize();
-            this.collection.add(attrs);
-            this.$('input[name="title"]').val('');
-        },
-        'change input[type="checkbox"]': function(event) {
-            var model = $(event.target).model();
-            model.set({done: event.target.checked});
-        }
-    }*/
 });
 ;;
 Thorax.templates['tvfinder/index'] = Handlebars.compile('<div class=\"container\">\n\n<!-- header starts -->\n    <header class=\"tvfhead clearfix\">\n        <ul class=\"nav nav-pills pull-right\">\n            <li>\n                <a>\n                    <i class=\"sprite-create\"></i>\n                    <span >\n                        Create</span>\n               </a>\n               <div>a new wishlist</div>\n\n             </li>\n\n            <li>\n                <a>\n                    <i class=\"sprite-person\"></i>\n                    <span>Sign In</span>\n               </a>\n               <div>to your account </div>\n            </li>\n\n            <li class=\"last\">\n                <a>\n                    <i class=\"sprite-cart\"></i>\n                    <span>0 Items</span>\n               </a>\n               <div>in your cart  </div>\n            </li>\n\n        </ul>\n        <ul class=\"nav nav-pills pull-left\">\n            <li>\n                <img alt=\"Walmart. Save Money. Live Better.\"  src=\"img/walmart_logo.gif\">\n            </li>\n            <li>\n                <form name=\"search\">\n                    <input type=\"search\" placeholder=\"Search\" class=\"text\" name=\"search\" />\n                </form>\n            </li>\n        </ul>\n    </header>\n\n<!-- header ends -->\n\n\n<!-- breadcrumb starts -->\n        \t<div class=\"tvfbc\">\n        \t\t\t\t<a href=\"http://www.walmart.com/\"><img src=\"img/home.jpg\"/></a>\n\n        \t\t\t\t<a href=\"http://www.walmart.com/cp/All-Departments/121828\">Departments</a>\n        \t\t\t\t<span> > </span>\n        \t\t\t\t<a href=\"http://www.walmart.com/cp/Electronics/3944\">Electronics</a>\n        \t\t\t\t<span> > </span>\n        \t\t\t\t<a class=\"last\" href=\"http://www.walmart.com/cp/1060825\">TV\'S</a>\n        \t</div>\n\n\n\n<!-- breadcrumb ends -->\n\n\n\n\n<!-- POV starts -->\n    <article class=\"tvfpov\" >\n       <h2>Get More, For Less</h2>\n       <p>Find the perfect Television with our new <span style=\"color:#0e79be;\">TVFinder<sup>TM</sup></span></p>\n        <div>\n            <img  class=\"first\" alt=\"TV 18\\\".\" src=\"img/tv18withprice.jpg\">\n            <img alt=\"TV 24\\\".\"  class=\"second\" src=\"img/tv24withprice.jpg\"\">\n            <img alt=\"TV 46\\\".\"  class=\"third\" src=\"img/tv46withprice.jpg\">\n        </div>\n    </article>\n\n<!-- POV ends -->\n\n<!-- Action Form starts -->\n\n    <article class=\"tvfAction clearfix\">\n        <ul class=\"nav nav-pills pull-right\">\n            <li >\n\n                             <label>Type</label>\n                             <select id = \"typeList\">\n                               <option value = \"All\">All</option>\n                               <option value = \"LCD\">LCD</option>\n                               <option value = \"LED-LCD\">LED-LCD</option>\n                               <option value = \"Plasma\">Plasma</option>\n                             </select>\n            </li>\n            <li >\n                             <label>Brand</label>\n                             <select id = \"brandList\">\n                               <option value = \"All\">All</option>\n                               <option value = \"2\">Samsung</option>\n                               <option value = \"3\">VIZIO </option>\n                               <option value = \"4\">RCA</option>\n                               <option value = \"5\">Sceptre</option>\n                               <option value = \"6\">Element</option>\n                               <option value = \"7\">HANNspree</option>\n                                <option value = \"8\">Proscan</option>\n                                <option value = \"9\">Sony </option>\n                                <option value = \"10\">Emerson</option>\n                             </select>\n\n\n            </li>\n            <li >\n                               <label>Sort</label>\n                               <select id = \"sortList\">\n                                 <option value = \"1\">Default</option>\n                                 <option value = \"2\">Price highest</option>\n                                 <option value = \"3\">Size</option>\n                                 <option value = \"4\">Brand</option>\n                               </select>\n            </li>\n        </ul>\n        <ul class=\"nav nav-pills pull-left\">\n            <li style=\"margin-top:10px\">\n                <i class=\"sprite-logoicon\"></i>\n                <div class=\"logo\">TVFinder<sup>TM</sup></div>\n            </li>\n            <li style=\"margin-left:20px\">\n                <div class=\"slider\">\n\t                <span>Size</span>\n\t                <div id=\"size-slider\"></div>\n\t             </div>\n            </li>\n        </ul>\n        </article>\n        <article class=\"tvfsummary\">\n            <div class=\"clearfix\" >\n                 <span class=\"clear\">\n                        <input type=\"button\" id=\"clear_filters\" value=\"Clear Filters\" style=\"border-radius:5px;background-color:white;\" >\n                 </span>\n                 <span class=\"results\">\n                    <span id=\"count\"> 100 MATCHES </span>FOR TELEVISIONS FITTING THAT CRITERIA\n                 </span>\n            </div>\n        </article>\n\n\n\n  <!-- Action form ends -->\n\n<!-- items starts -->\n\n    <article class=\"tvfitems\" id=\"tvfitems\">\n\n        {{#collection tag=\"ul\" class=\"nav nav-pills\"}}\n\t\t    <li>\n\t\t\t    <a href=\"http://www.walmart.com/ip/Sceptre-32-X322BV-HD/15739136\">\n\t\t\t       <img src=\"{{image}}\" alt=\"\">\n\t\t\t       <span class=\"title\">{{name}}</span>\n\t\t\t       <span class=\"price\">${{listPrice}}</span>\n\t\t\t    </a>\n\t\t    </li>\n         {{/collection}}\n    </article>\n\n    <!--  items ends -->\n    <hr>\n<!-- footer starts -->\n    <footer class=\"tvffooter clearfix\">\n       <div class=\"fform clearfix\" >\n           <i class=\"sprite-walmartfooterlogo\" style=\"float:left\"></i>\n            <form >\n                <input type=\"search\" class=\"search-query\" placeholder=\"Search\">\n             </form>\n           <button>Sign Up</button>\n        </div>\n       <article class=\"first\">\n          <ul class=\"nav\">\n             <li><a href=\"http://corporate.walmart.com/?povid=P1576-C1207.1157-L4\" title=\"Corporate\">Corporate</a></li>\n             <li><a href=\"http://corporate.walmart.com/our-story/?povid=P1576-C1207.1157-L5\" title=\"Our Story\">Our Story</a></li>\n             <li><a href=\"http://news.walmart.com/?povid=P1576-C1207.1157-L6\" title=\"News &amp; Views\">News &amp; Views</a></li>\n             <li><a href=\"http://foundation.walmart.com/?povid=P1576-C1207.1157-L7\" title=\"Giving Back\">Giving Back</a></li>\n             <li><a href=\"http://corporate.walmart.com/global-responsibility/?povid=P1576-C1207.1157-L8\" title=\"Global Responsibility\">Global Responsibility</a></li>\n             <li><a href=\"http://stock.walmart.com/?povid=P1576-C1207.1157-L9\" title=\"Investors\">Investors</a></li>\n             <li><a href=\"https://corporate.walmart.com/suppliers/?povid=P1576-C1207.1157-L10\" title=\"Suppliers\">Suppliers</a></li>\n             <li><a href=\"http://walmartstores.com/careers?povid=P1576-C1207.1157-L11\" title=\"Careers\">Careers</a></li>\n          </ul>\n       </article>\n       <article >\n          <ul class=\"nav\">\n             <li><a href=\"http://www.walmart.com/catalog/catalog.gsp?cat=542412&amp;povid=P1576-C1207.1157-L12\" title=\"About Walmart.com\">About Walmart.com</a></li>\n             <li><a href=\"http://www.walmart.com/catalog/catalog.gsp?cat=538449&amp;povid=P1576-C1207.1157-L13\" title=\"Terms of Use\">Terms of Use</a></li>\n             <li><a href=\"http://affiliates.walmart.com/aff_home.jsp?povid=P1576-C1207.1157-L14\" title=\"Affiliate Program\">Affiliate Program</a></li>\n             <li><a href=\"http://public.conxport.com/walmart/sponsorship/home.aspx?povid=P1576-C1207.1157-L15\" title=\"Sponsorship Submission\">Sponsorship Submission</a></li>\n             <li><a href=\"http://www.walmart.com/catalog/catalog.gsp?cat=538456&amp;povid=P1576-C1207.1157-L16\" title=\"International Customers\">International Customers</a></li>\n             <li><a href=\"http://www.walmart.com/cservice/contextual_help_popup.gsp?modId=971879&amp;povid=P1576-C1207.1157-L17\" title=\"About Our Ads\">About Our Ads</a></li>\n             <li><a href=\"http://www.walmart.com/popular_searches/index.htm?povid=P1576-C1207.1157-L18\" title=\"Popular Searches\">Popular Searches</a></li>\n             <li><a href=\"http://www.walmart.com/cservice/ca_storefinder.gsp?povid=P1576-C1207.1157-L19\" title=\"Store Finder\">Store Finder</a></li>\n             <li><a href=\"http://coupons.walmart.com/?povid=P1576-C1207.1157-L20\" title=\"Printable Coupons\">Printable Coupons</a></li>\n          </ul>\n       </article>\n       <article >\n          <ul class=\"nav\">\n             <li><a href=\"http://www.walmart.com/wf.gsp/a_d_registration_flow/landing?povid=P1576-C1207.1157-L21\" title=\"Associate Discounts\">Associate Discounts</a></li>\n             <li><a href=\"https://corporate.walmart.com/privacy-security?povid=P1576-C1207.1157-L22\" title=\"Privacy &amp; Security\">Privacy &amp; Security</a></li>\n             <li><a href=\"https://corporate.walmart.com/privacy-security/walmart-privacy-policy##?povid=P1576-C1207.1157-L23#CalifRights\" title=\"California Privacy Rights\">California Privacy Rights</a></li>\n             <li><a href=\"http://www.walmartlabs.com/?povid=P1576-C1207.1157-L24\" title=\"@Walmart Labs\">@WalmartLabs</a></li>\n             <li><a href=\"http://www.walmart.com/catalog/catalog.gsp?cat=121828&amp;povid=P1576-C1207.1157-L25\" title=\"See All Department\">See All Department</a></li>\n          </ul>\n       </article>\n       <article>\n           <ul class=\"nav \">\n             <li><a href=\"http://www.walmart.com/catalog/catalog.gsp?cat=5436&amp;povid=P1576-C1207.1157-L26\" title=\"Help Center\">Help Center</a></li>\n             <li><a href=\"http://www.walmart.com/cservice/li_trackorder.gsp?NavMode=2&amp;povid=P1576-C1207.1157-L27\" title=\"Track Your Order\">Track Your Order</a></li>\n             <li><a href=\"http://www.walmart.com/catalog/catalog.gsp?cat=538459&amp;povid=P1576-C1207.1157-L28\" title=\"Returns Policy\">Returns Policy</a></li>\n             <li><a href=\"http://www.walmart.com/returns/returns_type.gsp?povid=P1576-C1207.1157-L29\" title=\"Return an Item\">Return an Item</a></li>\n             <li><a href=\"https://corporate.walmart.com/recalls?povid=P1576-C1207.1157-L30\" title=\"Product Recalls\">Product Recalls</a></li>\n             <li><a href=\"http://www.walmart.com/cservice/cu_comments_online.gsp?cu_heading=8&amp;povid=P1576-C1207.1157-L31\" title=\"Contact Us\">Contact Us</a></li>\n             <li><a href=\"https://secure.opinionlab.com/ccc01/comment_card.asp?custom_var=249524036097612114&amp;height=768&amp;povid=P1576-C1207.1157-L32&amp;referer=http%3A%2F%2Fwww.walmart.com%2F&amp;time1=1348429537447&amp;time2=1348429729088&amp;width=1024\" title=\"Feedback\">Feedback</a></li>\n             </ul>\n       </article>\n       <article>\n           <ul class=\"nav \">\n              <li style=\"font-size:16px;\">Walmart Money Center</li>\n              <li><i class=\"sprite-footerimg\"></i></li>\n           </ul>\n       </article>\n\n    </footer>\n    <div id=\"overlay\">\n      <div class=\"pinfo\">\n        <span class=\"close\"></span>\n        <span class=\"title\">title</span>\n      </div>\n\n    </div>\n\n\n\n    <!-- footer ends -->');
