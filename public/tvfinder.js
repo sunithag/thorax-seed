@@ -27,9 +27,6 @@ new (Backbone.Router.extend({
             //localStorage : new Backbone.LocalStorage("TVFinder"),
             refreshFromServer : function() {
                 return Backbone.ajaxSync.apply(this, arguments);
-            },
-            ready: function(){
-                console.log("in ready");
             }
 
          /*   parse : function(data){
@@ -41,7 +38,8 @@ new (Backbone.Router.extend({
                 return this.filter(function(type){
                     return tvf.get('name').contains(type);
                 })
-               // return _this.filter(function(data){
+               // rI will try that now
+               return _this.filter(function(data){
 
                 //});
             }*/
@@ -59,10 +57,17 @@ new (Backbone.Router.extend({
                 console.log("fetch error"); }
             });
 
-        var view = new Application.Views["tvfinder/index"]({
-                collection:collection
-        });
-        Application.setView(view);
+        collection.load(function() {
+                var view = new Application.Views["tvfinder/index"]({
+                    collection:collection,
+                    originalCollection: new Application.Collection(_.clone(collection.models))
+
+                });
+                Application.setView(view);
+
+        })
+
+
 
 /*
         var collection = new TVFCollection();
@@ -191,7 +196,7 @@ Application.View.extend({
         var tvfitems = this.$("#tvfitems");
         var matches = this.$("#count");
 
-        var data = this.collection.models;
+        var data = this.originalCollection.models;
         var type = $("#typeList :selected").text();
         var brand = $("#brandList :selected").text();
         var size;
@@ -217,41 +222,12 @@ Application.View.extend({
 
         matches.html("");
         matches.html(this.newArray.length + " MATCHES ");
-
-       var model = new Backbone.Model({items:this.newArray});
-
-         var view = new Application.Views["tvfinder/itemlist"]({
-           model:model
-        });
-        view.render();
-        Application.$el.append(view.el)
-
-        //$('.tvfitems').replaceWith(view.el);
-
-
-
-/*
-     var str = $("<ul class='nav nav-pills'>");
-
-
-       for(i in this.newArray){
-           var j = this.newArray[i];
-           var li = $("<li >");
-           var a = $("<a>");
-            a.attr("href", j.attributes.url);
-            $("<img>").attr("src", j.attributes.image).appendTo(a);
-            $("<span>").attr("class", 'title').text(j.attributes.name).appendTo(a);
-            $("<span>").attr("class", 'price').text("$" + j.attributes.listPrice).appendTo(a);
-           a.appendTo(li);
-           li.appendTo(str);
-
-        };
-
         this.$("#tvfitems").fadeOut(300);
-        this.$("#tvfitems").html("");
         setTimeout(this.$("#tvfitems").fadeIn(300), 300);
-        tvfitems.append(str);
-*/
+
+        this.collection.reset(this.newArray);
+
+
     }
 
 });
@@ -279,7 +255,7 @@ Thorax.templates['tvfinder/index'] = Handlebars.compile('<div class=\"container\
     },
     initialize : function(){
       this.listenTo(this.model, "change", this.render);
-       this.template = _.template($("#tvfitems").html());
+      // this.template = _.template($("#tvfitems").html());
     }
 
 });

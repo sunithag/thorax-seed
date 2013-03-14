@@ -83,7 +83,7 @@ Application.View.extend({
         var tvfitems = this.$("#tvfitems");
         var matches = this.$("#count");
 
-        var data = this.collection.models;
+        var data = this.originalCollection.models;
         var type = $("#typeList :selected").text();
         var brand = $("#brandList :selected").text();
         var size;
@@ -109,41 +109,12 @@ Application.View.extend({
 
         matches.html("");
         matches.html(this.newArray.length + " MATCHES ");
-
-       var model = new Backbone.Model({items:this.newArray});
-
-         var view = new Application.Views["tvfinder/itemlist"]({
-           model:model
-        });
-        view.render();
-        Application.$el.append(view.el)
-
-        //$('.tvfitems').replaceWith(view.el);
-
-
-
-/*
-     var str = $("<ul class='nav nav-pills'>");
-
-
-       for(i in this.newArray){
-           var j = this.newArray[i];
-           var li = $("<li >");
-           var a = $("<a>");
-            a.attr("href", j.attributes.url);
-            $("<img>").attr("src", j.attributes.image).appendTo(a);
-            $("<span>").attr("class", 'title').text(j.attributes.name).appendTo(a);
-            $("<span>").attr("class", 'price').text("$" + j.attributes.listPrice).appendTo(a);
-           a.appendTo(li);
-           li.appendTo(str);
-
-        };
-
         this.$("#tvfitems").fadeOut(300);
-        this.$("#tvfitems").html("");
         setTimeout(this.$("#tvfitems").fadeIn(300), 300);
-        tvfitems.append(str);
-*/
+
+        this.collection.reset(this.newArray);
+
+
     }
 
 });
