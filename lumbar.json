@@ -10,12 +10,15 @@
         "": "index"
       },
       "scripts": [
+        "js/lib/canvaslogo.js",
         "js/lib/jquery-ui-1.10.1.min.js",
         "js/routers/tvfinder.js",
-        "js/views/tvfinder/index.js"
+        "js/views/tvfinder/index.js",
+        "js/views/tvfinder/itemlist.js"
 
       ],
       "styles": [
+
         "stylesheets/jquery-ui-1.10.1.min.css",
         "stylesheets/navstyles.css",
         "stylesheets/tvfinder.css"

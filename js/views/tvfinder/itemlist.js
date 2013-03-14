@@ -1,25 +1,23 @@
-/*var ItemsView = Application.View.extend({
+var ItemView = Application.View.extend({
     name: "tvfinder/itemlist",
+    id: 'tvfitems',
+
 
     events:{},
-    render: function(data){
-        $(this.el).html(this.template(this.model.toJSON()));
+    render: function() {
+        this.$el.html(this.template(this.model.attributes));
+      //  this.$el.html(this.model.attributes);
         return this;
     },
     initialize : function(){
-        this.template = _.template($("#tvfitems").html());
-    }
-})
-*/
-var ItemsView = Application.View['items'] = Backbone.View.extend({
-
-    className : 'items',
-
-    render: function() {
-        var context = this.model.attributes;
-        output = this.options.template(context);
-        this.$el.html(output);
+      this.listenTo(this.model, "change", this.render);
+       this.template = _.template($("#tvfitems").html());
     }
 
 });
+
+
+
+
+
 

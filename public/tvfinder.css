@@ -470,6 +470,7 @@ ol.inline > li {
     background: white;
     box-shadow: 0px 0px 40px #666;
     display: none;
+    z-index:999;
 
 }
 

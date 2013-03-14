@@ -1,5 +1,12 @@
+(function () {
+    var slider;
+
+
+
 Application.View.extend({
     name: "tvfinder/index",
+
+
 
     events:{
 
@@ -19,6 +26,10 @@ Application.View.extend({
 
     },
 
+    ready: function(event){
+        console.log("show items");
+    },
+
     productDetails: function(event){
 
         event.preventDefault();
@@ -36,7 +47,7 @@ Application.View.extend({
     setupSlider: function(event){
         var range = [0,0];
         var range_min = 13, range_max=100, range_mid = parseInt((range_max + range_min) / 2);;
-        var slider;
+        var self=this;
 
         slider = this.$("#size-slider").slider({ animate: false, range: true, min: 0, max: 100, values: [0, 0],
             slide: function (event, ui) {
@@ -49,6 +60,8 @@ Application.View.extend({
 
                 range[0] = ui.values[0];
                 range[1] = ui.values[1];
+                //self.updateProductList();
+
             } });
 
         slider.bind("setvals", function (e, p) {
@@ -57,7 +70,7 @@ Application.View.extend({
         });
 
         slider.trigger("setvals", { values: [range_mid-20, range_mid+20] } );
-
+        //this.updateProductList();
     },
 
     clearFilters: function(event){
@@ -73,47 +86,49 @@ Application.View.extend({
         var data = this.collection.models;
         var type = $("#typeList :selected").text();
         var brand = $("#brandList :selected").text();
+        var size;
         var sort = $("#sortList :selected").text();
 
 
-       tvfitems.html("");
+       //tvfitems.html("");
        var i, nitems = 0;
        this.newArray = data.filter(function(item){
 
             return (type.match(/All/) || item.attributes.name.match(type));
         });
 
-            this.newArray = this.newArray.filter(function(item){
+       this.newArray = this.newArray.filter(function(item){
           return (brand.match(/All/) || item.attributes.name.match(brand));
         });
 
-        this.newArray.sort(function(a,b) {
+       this.newArray.sort(function(a,b) {
             return parseFloat(b.attributes.listPrice) - parseFloat(a.attributes.listPrice);
         });
+
+       //this.newArray = this.newArray.where({item.attributes.name: "Musketeer"});
 
         matches.html("");
         matches.html(this.newArray.length + " MATCHES ");
 
+       var model = new Backbone.Model({items:this.newArray});
 
-      /*  var model = new Backbone.Model({items:newArray});
-
-        var view = new Application.Views["tvfinder/itemlist"]({
-            model:model
+         var view = new Application.Views["tvfinder/itemlist"]({
+           model:model
         });
-        Application.setView(view);
         view.render();
+        Application.$el.append(view.el)
 
-       Application.$el.append(view.el)
-        $('.tvfitems').replaceWith(view.el);*/
+        //$('.tvfitems').replaceWith(view.el);
 
-      //  tvfitems.html("");
-        var str = $("<ul class='nav nav-pills' data-view-cid='view7' data-view-helper='collection' data-collection-element='true' data-collection-cid='collection3'></ul>");
 
-       // var str = $("<ul class='nav nav-pills>");
+
+/*
+     var str = $("<ul class='nav nav-pills'>");
+
 
        for(i in this.newArray){
            var j = this.newArray[i];
-           var li = $("<li data-model-cid='c109'>");
+           var li = $("<li >");
            var a = $("<a>");
             a.attr("href", j.attributes.url);
             $("<img>").attr("src", j.attributes.image).appendTo(a);
@@ -126,9 +141,19 @@ Application.View.extend({
 
         this.$("#tvfitems").fadeOut(300);
         this.$("#tvfitems").html("");
-        tvfitems.append(str);
         setTimeout(this.$("#tvfitems").fadeIn(300), 300);
-
+        tvfitems.append(str);
+*/
     }
 
 });
+
+    $(document).ready(function() {
+        console.log("document is ready");
+        //console.log("collection models " + this.collection.models);
+        //appView.updateProductList();
+
+
+    });
+
+})();

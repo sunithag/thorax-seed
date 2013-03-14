@@ -9,6 +9,9 @@ new (Backbone.Router.extend({
             //localStorage : new Backbone.LocalStorage("TVFinder"),
             refreshFromServer : function() {
                 return Backbone.ajaxSync.apply(this, arguments);
+            },
+            ready: function(){
+                console.log("in ready");
             }
 
          /*   parse : function(data){
@@ -30,7 +33,7 @@ new (Backbone.Router.extend({
         collection.fetch({
             success: function() {
                 console.log("fetch sucess");
-               //collection.trigger('ready');
+               collection.trigger("ready");
                // console.log(collection);
 
             },
@@ -50,6 +53,14 @@ new (Backbone.Router.extend({
         });
         Application.setView(view);*/
 
+    },
+    itemlist:function() {
+        var model = Application.Model.extend();
+
+        var view = new Application.Views["tvfinder/itemlist"]({
+            model: model
+        });
+        Application.setView(view);
     }
 
 }));
