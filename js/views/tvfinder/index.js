@@ -10,13 +10,13 @@ Application.View.extend({
 
     events:{
 
-        'click #tvfitems a' : 'productDetails',
+        'click #items a' : 'productDetails',
 
         'click #overlay .close': 'hideOverlay',
 
         'click #clear_filters': 'clearFilters',
 
-        'change .tvfAction select': 'updateProductList',
+        'change .filters select': 'updateProductList',
 
         'rendered': function(event){
 
@@ -26,22 +26,19 @@ Application.View.extend({
 
     },
 
-    ready: function(event){
-        console.log("show items");
-    },
 
     productDetails: function(event){
 
         event.preventDefault();
-        var str = event.target.innerHTML;
-        var panel = this.$( "#overlay" );
-        this.$("#overlay .title").replaceWith(str);
+        var str = $(event.target).innerHTML;
+        var panel = this.$( "#productOverlay" );
+        this.$("#productOverlay .title").replaceWith(str);
         panel.css("display","block");
         window.scrollTo(0,0);
     },
 
     hideOverlay: function(event){
-        this.$( "#overlay" ).css("display","none");
+        this.$( "#productOverlay" ).css("display","none");
     },
 
     setupSlider: function(event){
@@ -90,8 +87,6 @@ Application.View.extend({
         var sort = $("#sortList :selected").text();
 
 
-       //tvfitems.html("");
-       var i, nitems = 0;
        this.newArray = data.filter(function(item){
 
             return (type.match(/All/) || item.attributes.name.match(type));
@@ -131,7 +126,7 @@ Application.View.extend({
 
         this.$('.tvfitems').html('').append(view.el);
 
-/* 
+/*
      var str = $("<ul class='nav nav-pills'>");
 
 
@@ -159,10 +154,16 @@ Application.View.extend({
 
     $(document).ready(function() {
         console.log("document is ready");
+
         //console.log("collection models " + this.collection.models);
-        //appView.updateProductList();
+
 
 
     });
+
+
+
+
+
 
 })();

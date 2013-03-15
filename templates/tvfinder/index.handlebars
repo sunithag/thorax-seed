@@ -1,154 +1,73 @@
-<div class="container">
-
-<!-- header starts -->
-    <header class="tvfhead clearfix">
-        <ul class="nav nav-pills pull-right">
-            <li>
-                <a>
-                    <i class="sprite-create"></i>
-                    <span >
-                        Create</span>
-               </a>
-               <div>a new wishlist</div>
-
-             </li>
-
-            <li>
-                <a>
-                    <i class="sprite-person"></i>
-                    <span>Sign In</span>
-               </a>
-               <div>to your account </div>
-            </li>
-
-            <li class="last">
-                <a>
-                    <i class="sprite-cart"></i>
-                    <span>0 Items</span>
-               </a>
-               <div>in your cart  </div>
-            </li>
-
-        </ul>
-        <ul class="nav nav-pills pull-left">
-            <li>
-                <canvas id="canvas" height="47" width="185"></canvas>
-            </li>
-            <li>
-                <form name="search">
-                    <input type="search" placeholder="Search" class="text" name="search" />
-                </form>
-            </li>
-        </ul>
-    </header>
-
-<!-- header ends -->
-
-
-<!-- breadcrumb starts -->
-        	<div class="tvfbc">
-        				<a href="http://www.walmart.com/"><img src="img/home.jpg"/></a>
-
-        				<a href="http://www.walmart.com/cp/All-Departments/121828">Departments</a>
-        				<span> > </span>
-        				<a href="http://www.walmart.com/cp/Electronics/3944">Electronics</a>
-        				<span> > </span>
-        				<a class="last" href="http://www.walmart.com/cp/1060825">TV'S</a>
-        	</div>
-
-
-
-<!-- breadcrumb ends -->
-
-
-
-
-<!-- POV starts -->
-    <article class="tvfpov" >
-       <h2>Get More, For Less</h2>
-       <p>Find the perfect Television with our new <span style="color:#0e79be;">TVFinder<sup>TM</sup></span></p>
-        <div>
-            <img  class="first" alt="TV 18\"." src="img/tv18withprice.jpg">
-            <img alt="TV 24\"."  class="second" src="img/tv24withprice.jpg"">
-            <img alt="TV 46\"."  class="third" src="img/tv46withprice.jpg">
-        </div>
-    </article>
-
-<!-- POV ends -->
-
-<!-- Action Form starts -->
-
-    <article class="tvfAction clearfix">
-        <ul class="nav nav-pills pull-right">
-            <li >
-
-                             <label>Type</label>
-                             <select id = "typeList">
-                               <option value = "All">All</option>
-                               <option value = "LCD">LCD</option>
-                               <option value = "LED-LCD">LED-LCD</option>
-                               <option value = "Plasma">Plasma</option>
-                             </select>
-            </li>
-            <li >
-                             <label>Brand</label>
-                             <select id = "brandList">
-                               <option value = "All">All</option>
-                               <option value = "2">Samsung</option>
-                               <option value = "3">VIZIO </option>
-                               <option value = "4">RCA</option>
-                               <option value = "5">Sceptre</option>
-                               <option value = "6">Element</option>
-                               <option value = "7">HANNspree</option>
-                                <option value = "8">Proscan</option>
-                                <option value = "9">Sony </option>
-                                <option value = "10">Emerson</option>
-                             </select>
-
-
-            </li>
-            <li >
-                               <label>Sort</label>
-                               <select id = "sortList">
-                                 <option value = "1">Default</option>
-                                 <option value = "2">Price highest</option>
-                                 <option value = "3">Size</option>
-                                 <option value = "4">Brand</option>
-                               </select>
-            </li>
-        </ul>
-        <ul class="nav nav-pills pull-left">
-            <li style="margin-top:10px">
-                <i class="sprite-logoicon"></i>
-                <div class="logo">TVFinder<sup>TM</sup></div>
-            </li>
-            <li style="margin-left:20px">
-                <div class="slider">
-	                <span>Size</span>
-	                <div id="size-slider"></div>
-	             </div>
-            </li>
-        </ul>
-        </article>
-        <article class="tvfsummary">
-            <div class="clearfix" >
+ <div class="container">
+  <header class="head clearfix">
+    <ul class="nav nav-pills pull-right">
+      <li><a><i class="sprite-create"></i><span >Create</span></a><div>a new wishlist</div> </li>
+      <li> <a> <i class="sprite-person"></i><span>Sign In</span></a> <div>to your account </div></li>
+      <li class="last"> <a> <i class="sprite-cart"></i><span>0 Items</span> </a> <div>in your cart  </div></li>
+    </ul>
+    <ul class="nav nav-pills pull-left">
+       <li><img alt="Walmart. Save Money. Live Better."  src="img/logo.gif"></li>
+        <li> <form name="search"><input type="search" placeholder="Search" class="text" name="search" /></form></li>
+     </ul>
+  </header>
+  <nav class="bc">
+     <a href="http://www.walmart.com/"><img src="img/home.jpg"/></a>
+     <a href="http://www.walmart.com/cp/All-Departments/121828">Departments</a>
+      <span> > </span><a href="http://www.walmart.com/cp/Electronics/3944">Electronics</a>
+       <span> > </span><a class="last" href="http://www.walmart.com/cp/1060825">TV'S</a>
+  </nav>
+   <div class="hero" >
+      <h2>Get More, For Less</h2>
+      <p>Find the perfect Television with our new <span style="color:#0e79be;">TVFinder<sup>TM</sup></span></p>
+      <div><img  class="first" alt="TV 18\"." src="img/tv18withprice.jpg"> <img alt="TV 24\"."  class="second" src="img/tv24withprice.jpg"">
+            <img alt="TV 46\"."  class="third" src="img/tv46withprice.jpg"> </div>
+   </div>
+   <div class="filters clearfix">
+      <ul class="nav nav-pills pull-right">
+        <li ><label>Type</label>
+        <select id = "typeList">
+            <option value = "All">All</option>
+            <option value = "LCD">LCD</option>
+            <option value = "LED-LCD">LED-LCD</option>
+             <option value = "Plasma">Plasma</option>
+        </select></li>
+        <li><label>Brand</label>
+          <select id = "brandList">
+             <option value = "All">All</option>
+             <option value = "2">Samsung</option>
+             <option value = "3">VIZIO </option>
+             <option value = "4">RCA</option>
+             <option value = "5">Sceptre</option>
+             <option value = "6">Element</option>
+             <option value = "7">HANNspree</option>
+             <option value = "8">Proscan</option>
+             <option value = "9">Sony </option>
+             <option value = "10">Emerson</option>
+          </select></li>
+        <li ><label>Sort</label>
+        <select id = "sortList">
+              <option value = "1">Default</option>
+              <option value = "2">Price highest</option>
+              <option value = "3">Size</option>
+              <option value = "4">Brand</option>
+        </select> </li>
+      </ul>
+      <ul class="nav nav-pills pull-left">
+        <li style="margin-top:10px"><i class="sprite-logoicon"></i><div class="logo">TVFinder<sup>TM</sup></div></li>
+        <li style="margin-left:20px"><div class="slider"><span>Size</span><div id="size-slider"></div></div></li>
+      </ul>
+      </div>
+      <div class="summary">
+          <div class="clearfix" >
                  <span class="clear">
                         <input type="button" id="clear_filters" value="Clear Filters" style="border-radius:5px;background-color:white;" >
                  </span>
                  <span class="results">
                     <span id="count"> 100 MATCHES </span>FOR TELEVISIONS FITTING THAT CRITERIA
                  </span>
-            </div>
-        </article>
-
-
-
-  <!-- Action form ends -->
-
-<!-- items starts -->
-
-    <article class="tvfitems" id="tvfitems">
-
+          </div>
+      </div>
+      <div class="items" id="items">
         {{#collection tag="ul" class="nav nav-pills cccc"}}
 		    <li>
 			    <a href="http://www.walmart.com/ip/Sceptre-32-X322BV-HD/15739136">
@@ -158,79 +77,72 @@
 			    </a>
 		    </li>
          {{/collection}}
-    </article>
-
-
-    <!--  items ends -->
-    <hr>
-<!-- footer starts -->
-    <footer class="tvffooter clearfix">
-       <div class="fform clearfix" >
-           <i class="sprite-walmartfooterlogo" style="float:left"></i>
-            <form >
-                <input type="search" class="search-query" placeholder="Search">
-             </form>
-           <button>Sign Up</button>
-        </div>
-       <article class="first">
-          <ul class="nav">
-             <li><a href="http://corporate.walmart.com/?povid=P1576-C1207.1157-L4" title="Corporate">Corporate</a></li>
-             <li><a href="http://corporate.walmart.com/our-story/?povid=P1576-C1207.1157-L5" title="Our Story">Our Story</a></li>
-             <li><a href="http://news.walmart.com/?povid=P1576-C1207.1157-L6" title="News &amp; Views">News &amp; Views</a></li>
-             <li><a href="http://foundation.walmart.com/?povid=P1576-C1207.1157-L7" title="Giving Back">Giving Back</a></li>
-             <li><a href="http://corporate.walmart.com/global-responsibility/?povid=P1576-C1207.1157-L8" title="Global Responsibility">Global Responsibility</a></li>
-             <li><a href="http://stock.walmart.com/?povid=P1576-C1207.1157-L9" title="Investors">Investors</a></li>
-             <li><a href="https://corporate.walmart.com/suppliers/?povid=P1576-C1207.1157-L10" title="Suppliers">Suppliers</a></li>
-             <li><a href="http://walmartstores.com/careers?povid=P1576-C1207.1157-L11" title="Careers">Careers</a></li>
+      </div>
+      <footer class="footer">
+      <div class="signup">
+         <form name="email" method="get" action="#">
+             <i class="sprite-walmartfooterlogo" style="float:left"></i>
+             <input type="email" name="email" class="email" placeholder="Sign up for our Mailing List" />
+            <button class="btn">Sign up</button>
+         </form>
+      </div>
+      <section class="foot clearfix">
+         <article class="col">
+          <ul>
+             <li><a title="Corporate" href="http://corporate.walmart.com/?povid=P1171-C1093.1020-L4">Corporate</a></li>
+             <li><a title="Our Story" href="http://corporate.walmart.com/our-story/?povid=P1171-C1093.1020-L5">Our Story</a></li>
+             <li><a title="News &amp; Views" href="http://news.walmart.com/?povid=P1171-C1093.1020-L6">News &amp; Views</a></li>
+             <li><a title="Giving Back" href="http://foundation.walmart.com/?povid=P1171-C1093.1020-L7">Giving Back</a></li>
+             <li><a title="Global Responsibility" href="http://corporate.walmart.com/global-responsibility/?povid=P1171-C1093.1020-L8">Global Responsibility</a></li>
+             <li><a title="Investors" href="http://stock.walmart.com/?povid=P1171-C1093.1020-L9">Investors</a></li>
+              <li><a title="Suppliers" href="https://corporate.walmart.com/suppliers/?povid=P1171-C1093.1020-L10">Suppliers</a></li>
+             <li><a title="Careers" href="http://walmartstores.com/careers?povid=P1171-C1093.1020-L11">Careers</a></li>
           </ul>
-       </article>
-       <article >
-          <ul class="nav">
-             <li><a href="http://www.walmart.com/catalog/catalog.gsp?cat=542412&amp;povid=P1576-C1207.1157-L12" title="About Walmart.com">About Walmart.com</a></li>
-             <li><a href="http://www.walmart.com/catalog/catalog.gsp?cat=538449&amp;povid=P1576-C1207.1157-L13" title="Terms of Use">Terms of Use</a></li>
-             <li><a href="http://affiliates.walmart.com/aff_home.jsp?povid=P1576-C1207.1157-L14" title="Affiliate Program">Affiliate Program</a></li>
-             <li><a href="http://public.conxport.com/walmart/sponsorship/home.aspx?povid=P1576-C1207.1157-L15" title="Sponsorship Submission">Sponsorship Submission</a></li>
-             <li><a href="http://www.walmart.com/catalog/catalog.gsp?cat=538456&amp;povid=P1576-C1207.1157-L16" title="International Customers">International Customers</a></li>
-             <li><a href="http://www.walmart.com/cservice/contextual_help_popup.gsp?modId=971879&amp;povid=P1576-C1207.1157-L17" title="About Our Ads">About Our Ads</a></li>
-             <li><a href="http://www.walmart.com/popular_searches/index.htm?povid=P1576-C1207.1157-L18" title="Popular Searches">Popular Searches</a></li>
-             <li><a href="http://www.walmart.com/cservice/ca_storefinder.gsp?povid=P1576-C1207.1157-L19" title="Store Finder">Store Finder</a></li>
-             <li><a href="http://coupons.walmart.com/?povid=P1576-C1207.1157-L20" title="Printable Coupons">Printable Coupons</a></li>
+      </article>
+      <article class="col">
+          <ul>
+              <li><a title="About Walmart.com" href="http://www.walmart.com/catalog/catalog.gsp?cat=542412&amp;povid=P1171-C1093.1020-L12">About Walmart.com</a></li>
+              <li><a title="Terms of Use" href="http://www.walmart.com/catalog/catalog.gsp?cat=538449&amp;povid=P1171-C1093.1020-L13">Terms of Use</a></li>
+              <li><a title="Affiliate Program" href="http://affiliates.walmart.com/aff_home.jsp?povid=P1171-C1093.1020-L14">Affiliate Program</a></li>
+              <li><a title="Sponsorship Submission" href="http://public.conxport.com/walmart/sponsorship/home.aspx?povid=P1171-C1093.1020-L15">Sponsorship Submission</a></li>
+              <li><a title="International Customers" href="http://www.walmart.com/catalog/catalog.gsp?cat=538456&amp;povid=P1171-C1093.1020-L16">International Customers</a></li>
+              <li><a title="About Our Ads" href="http://www.walmart.com/cservice/contextual_help_popup.gsp?modId=971879&amp;povid=P1171-C1093.1020-L17">About Our Ads</a></li>
+              <li><a title="Popular Searches" href="http://www.walmart.com/popular_searches/index.htm?povid=P1171-C1093.1020-L18">Popular Searches</a></li>
+              <li><a title="Store Finder" href="http://www.walmart.com/cservice/ca_storefinder.gsp?povid=P1171-C1093.1020-L19">Store Finder</a></li>
+              <li><a title="Printable Coupons" href="http://coupons.walmart.com/?povid=P1171-C1093.1020-L20">Printable Coupons</a></li>
           </ul>
-       </article>
-       <article >
-          <ul class="nav">
-             <li><a href="http://www.walmart.com/wf.gsp/a_d_registration_flow/landing?povid=P1576-C1207.1157-L21" title="Associate Discounts">Associate Discounts</a></li>
-             <li><a href="https://corporate.walmart.com/privacy-security?povid=P1576-C1207.1157-L22" title="Privacy &amp; Security">Privacy &amp; Security</a></li>
-             <li><a href="https://corporate.walmart.com/privacy-security/walmart-privacy-policy##?povid=P1576-C1207.1157-L23#CalifRights" title="California Privacy Rights">California Privacy Rights</a></li>
-             <li><a href="http://www.walmartlabs.com/?povid=P1576-C1207.1157-L24" title="@Walmart Labs">@WalmartLabs</a></li>
-             <li><a href="http://www.walmart.com/catalog/catalog.gsp?cat=121828&amp;povid=P1576-C1207.1157-L25" title="See All Department">See All Department</a></li>
+      </article>
+      <article class="col">
+          <ul>
+             <li><a title="Help Center" href="http://www.walmart.com/catalog/catalog.gsp?cat=5436&amp;povid=P1171-C1093.1020-L26">Help Center</a></li>
+             <li><a title="Track Your Order" href="http://www.walmart.com/cservice/li_trackorder.gsp?NavMode=2&amp;povid=P1171-C1093.1020-L27">Track Your Order</a></li>
+             <li><a title="Returns Policy" href="http://www.walmart.com/catalog/catalog.gsp?cat=538459&amp;povid=P1171-C1093.1020-L28">Returns Policy</a></li>
+             <li><a title="Return an Item" href="http://www.walmart.com/returns/returns_type.gsp?povid=P1171-C1093.1020-L29">Return an Item</a></li>
+             <li><a title="Product Recalls" href="https://corporate.walmart.com/recalls?povid=P1171-C1093.1020-L30">Product Recalls</a></li>
+             <li><a title="Contact Us" href="http://www.walmart.com/cservice/cu_comments_online.gsp?cu_heading=8&amp;povid=P1171-C1093.1020-L31">Contact Us</a></li>
+             <li><a title="Feedback" href="https://secure.opinionlab.com/ccc01/comment_card.asp?custom_var=249524036097612114&amp;height=768&amp;povid=P1171-C1093.1020-L32&amp;referer=http%3A%2F%2Fwww.walmart.com%2F&amp;time1=1348429537447&amp;time2=1348429729088&amp;width=1024">Feedback</a></li>
           </ul>
-       </article>
-       <article>
-           <ul class="nav ">
-             <li><a href="http://www.walmart.com/catalog/catalog.gsp?cat=5436&amp;povid=P1576-C1207.1157-L26" title="Help Center">Help Center</a></li>
-             <li><a href="http://www.walmart.com/cservice/li_trackorder.gsp?NavMode=2&amp;povid=P1576-C1207.1157-L27" title="Track Your Order">Track Your Order</a></li>
-             <li><a href="http://www.walmart.com/catalog/catalog.gsp?cat=538459&amp;povid=P1576-C1207.1157-L28" title="Returns Policy">Returns Policy</a></li>
-             <li><a href="http://www.walmart.com/returns/returns_type.gsp?povid=P1576-C1207.1157-L29" title="Return an Item">Return an Item</a></li>
-             <li><a href="https://corporate.walmart.com/recalls?povid=P1576-C1207.1157-L30" title="Product Recalls">Product Recalls</a></li>
-             <li><a href="http://www.walmart.com/cservice/cu_comments_online.gsp?cu_heading=8&amp;povid=P1576-C1207.1157-L31" title="Contact Us">Contact Us</a></li>
-             <li><a href="https://secure.opinionlab.com/ccc01/comment_card.asp?custom_var=249524036097612114&amp;height=768&amp;povid=P1576-C1207.1157-L32&amp;referer=http%3A%2F%2Fwww.walmart.com%2F&amp;time1=1348429537447&amp;time2=1348429729088&amp;width=1024" title="Feedback">Feedback</a></li>
-             </ul>
-       </article>
-       <article>
-           <ul class="nav ">
-              <li style="font-size:16px;">Walmart Money Center</li>
-              <li><i class="sprite-footerimg"></i></li>
-           </ul>
-       </article>
+      </article>
+      <article class="col">
+          <ul>
+          <li><a title="Associate Discounts" href="http://www.walmart.com/wf.gsp/a_d_registration_flow/landing?povid=P1171-C1093.1020-L21">Associate Discounts</a></li>
+          <li><a title="Privacy &amp; Security" href="https://corporate.walmart.com/privacy-security?povid=P1171-C1093.1020-L22">Privacy &amp; Security</a></li>
+          <li><a title="California Privacy Rights" href="https://corporate.walmart.com/privacy-security/walmart-privacy-policy##?povid=P1171-C1093.1020-L23#CalifRights">California Privacy Rights</a></li>
+          <li><a title="@Walmart Labs" href="http://www.walmartlabs.com/?povid=P1171-C1093.1020-L24">@WalmartLabs</a></li>
+          <li><a title="See All Department" href="http://www.walmart.com/catalog/catalog.gsp?cat=121828&amp;povid=P1171-C1093.1020-L25">See All Department</a></li>
+          </ul>
+      </article>
+      <article class="col centre"><ul><li><a title="Walmart Money Centre" href="#">Walmart Money Centre</a></li><li><i class="sprite-footerimg"></i></li></ul></article>
+      </section>
+      </footer>
 
-    </footer>
-    <div id="overlay">
+</div>
+   <div id="productOverlay">
+
       <div class="pinfo">
         <span class="close"></span>
         <span class="title">title</span>
       </div>
-
     </div>
 
 

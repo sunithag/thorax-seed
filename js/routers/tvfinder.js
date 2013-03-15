@@ -11,52 +11,52 @@ new (Backbone.Router.extend({
                 return Backbone.ajaxSync.apply(this, arguments);
             }
 
-         /*   parse : function(data){
+            /*   parse : function(data){
              //   data.splice(20);
-                console.
-                return data;
-            }
-           typefilter: function(){
-                return this.filter(function(type){
-                    return tvf.get('name').contains(type);
-                })
-               // rI will try that now
-               return _this.filter(function(data){
+             console.
+             return data;
+             }
+             typefilter: function(){
+             return this.filter(function(type){
+             return tvf.get('name').contains(type);
+             })
+             // rI will try that now
+             return _this.filter(function(data){
 
-                //});
-            }*/
+             //});
+             }*/
         });
 
         var collection = new TVFCollection();
         collection.fetch({
             success: function() {
                 console.log("fetch sucess");
-               collection.trigger("ready");
-               // console.log(collection);
+                collection.trigger("ready");
+                // console.log(collection);
 
             },
             error: function() {
                 console.log("fetch error"); }
-            });
+        });
 
         collection.load(function() {
-                var view = new Application.Views["tvfinder/index"]({
-                    collection:collection,
-                    originalCollection: new Application.Collection(_.clone(collection.models))
+            var view = new Application.Views["tvfinder/index"]({
+                collection:collection,
+                originalCollection: new Application.Collection(_.clone(collection.models))
 
-                });
-                Application.setView(view);
+            });
+            Application.setView(view);
 
         })
 
 
 
-/*
-        var collection = new TVFCollection();
-        var view = new Application.Views["tvfinder/index"]({
-            collection: collection
-        });
-        Application.setView(view);*/
+        /*
+         var collection = new TVFCollection();
+         var view = new Application.Views["tvfinder/index"]({
+         collection: collection
+         });
+         Application.setView(view);*/
 
     },
     itemlist:function() {
@@ -69,24 +69,29 @@ new (Backbone.Router.extend({
     }
 
 }));
-    /*
-        TVFCollection.instance = new TVFCollection();
-        TVFCollection.instance.fetch({
-            success: function() {
-                console.log("fetch is successful");
-                //trigger ready function?
-            });
-            },
-           error: function() {
-               console.log(arguments); }
-        });
-        var view = new Application.Views["tvfinder/index"]({
-                collection:TVFCollection
+/*
+ TVFCollection.instance = new TVFCollection();
+ TVFCollection.instance.fetch({
+ success: function() {
+ console.log("fetch is successful");
+ //trigger ready function?
+ });
+ },
+ error: function() {
+ console.log(arguments); }
+ });
+ var view = new Application.Views["tvfinder/index"]({
+ collection:TVFCollection
 
-        });
-        Application.setView(view);
+ });
+ Application.setView(view);
 
-    */
+ */
+
+
+
+
+
 
 
 
